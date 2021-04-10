@@ -1,6 +1,7 @@
 
-all: python
-push-all: push-python
+all: python android
+
+push-all: push-python push-android
 
 ## PYTHON ##
 
@@ -13,3 +14,15 @@ build-py-%:
 
 push-py-%:
 	docker push michiganlabs/python:$*
+
+## Android ##
+
+ANDROID_SDKS = 29 30
+android: $(addprefix build-android-,$(ANDROID_SDKS))
+push-android: $(addprefix push-android-,$(ANDROID_SDKS))
+
+build-android-%:
+	docker build ./android --build-arg ANDROID_SDK_VERSION=$* -t michiganlabs/android:$*
+
+push-android-%:
+	docker push michiganlabs/android:$*
