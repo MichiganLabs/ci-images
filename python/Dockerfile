@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN echo 'PATH="$HOME/.local/bin:$PATH"' >> /etc/profile.d/user-local-path.sh
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends sudo make git build-essential libpq-dev\
+    && apt-get install -y --no-install-recommends sudo make zip git build-essential libpq-dev\
     && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd michiganlabs \
