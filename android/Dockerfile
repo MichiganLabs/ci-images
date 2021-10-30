@@ -89,5 +89,5 @@ RUN sdkmanager \
   "build-tools;30.0.2" \
   "build-tools;30.0.3"
 
-ARG ANDROID_SDK_VERSION=30
+ARG ANDROID_SDK_VERSION=31
 RUN sdkmanager "platforms;android-$ANDROID_SDK_VERSION"
