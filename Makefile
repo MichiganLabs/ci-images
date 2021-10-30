@@ -5,7 +5,7 @@ push-all: push-python push-android
 
 ## PYTHON ##
 
-PYTHONS = 3.6 3.7 3.8 3.9
+PYTHONS = 3.6 3.7 3.8 3.9 3.10
 python: $(addprefix build-py-,$(PYTHONS))
 push-python: $(addprefix push-py-,$(PYTHONS))
 
@@ -17,7 +17,7 @@ push-py-%:
 
 ## Android ##
 
-ANDROID_SDKS = 29 30
+ANDROID_SDKS = 29 30 31
 android: $(addprefix build-android-,$(ANDROID_SDKS))
 push-android: $(addprefix push-android-,$(ANDROID_SDKS))
 
