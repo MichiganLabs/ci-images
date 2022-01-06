@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-slim
+FROM openjdk:8-jdk-slim-buster
 LABEL maintainer="jfriend@michiganlabs.com"
 
 # make Apt non-interactive

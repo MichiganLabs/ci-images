@@ -30,7 +30,7 @@ Images come with the following additional tools installed:
 See [available versions here](https://hub.docker.com/repository/docker/michiganlabs/android/tags?page=1&ordering=name).
 
 ## Android JDK 8
-This is a variation of the android image based on `openjdk:8-jdk-slim`.
+This is a variation of the android image based on `openjdk:8-jdk-slim-buster`.
 
 Images come with the following additional tools installed:
 
