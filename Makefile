@@ -26,3 +26,14 @@ build-android-%:
 
 push-android-%:
 	docker push michiganlabs/android:$*
+
+
+## Android using Java 8 ##
+android-jdk8: $(addprefix build-android-jdk8-,$(ANDROID_SDKS))
+push-android-jdk8: $(addprefix push-android-jdk8-,$(ANDROID_SDKS))
+
+build-android-jdk8-%:
+	docker build ./android-jdk8 --build-arg ANDROID_SDK_VERSION=$* -t michiganlabs/android-jdk8:$*
+
+push-android-jdk8-%:
+	docker push michiganlabs/android-jdk8:$*

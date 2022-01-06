@@ -28,3 +28,19 @@ Images come with the following additional tools installed:
 * `make`
 
 See [available versions here](https://hub.docker.com/repository/docker/michiganlabs/android/tags?page=1&ordering=name).
+
+## Android JDK 8
+This is a variation of the android image based on `openjdk:8-jdk-slim-buster`.
+
+Images come with the following additional tools installed:
+
+* Android SDK
+* Android build tools (last 3 versions)
+* Android emulator
+* Ruby (and Bundler)
+* Python
+* `sudo`
+* `git`
+* `make`
+
+See [available versions here](https://hub.docker.com/repository/docker/michiganlabs/android-jdk8/tags?page=1&ordering=name).
