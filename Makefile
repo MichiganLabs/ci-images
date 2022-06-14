@@ -5,7 +5,7 @@ push-all: push-python push-android
 
 ## PYTHON ##
 
-PYTHONS = 3.6 3.7 3.8 3.9 3.10
+PYTHONS = 3.8 3.9 3.10
 python: $(addprefix build-py-,$(PYTHONS))
 push-python: $(addprefix push-py-,$(PYTHONS))
 

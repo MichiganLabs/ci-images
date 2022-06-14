@@ -16,7 +16,7 @@ RUN groupadd michiganlabs \
   && echo 'michiganlabs ALL=NOPASSWD: ALL' >> /etc/sudoers.d/42-michiganlabs \
   && echo 'Defaults env_keep += "DEBIAN_FRONTEND"' >> /etc/sudoers.d/env_keep
 
-RUN pip install --quiet --no-cache poetry pipenv
+RUN pip install -U --quiet --no-cache pip poetry pipenv
 
 USER michiganlabs
 ENV PATH /home/michiganlabs/.local/bin:/home/michiganlabs/bin:${PATH}
