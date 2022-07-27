@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk-slim-buster
+FROM openjdk:11-jdk-slim-bullseye
 LABEL maintainer="jfriend@michiganlabs.com"
 
 # make Apt non-interactive
@@ -37,19 +37,17 @@ RUN locale-gen C.UTF-8 || true
 ENV LANG=C.UTF-8
 
 RUN sudo apt-get update -qqy && sudo apt-get install -qqy \
-        python-dev \
-        python-pip \
-        python-setuptools \
+        python3-dev \
+        python3-pip \
+        python3-setuptools \
         apt-transport-https \
         lsb-release && \
     sudo rm -rf /var/lib/apt/lists/*
 
-RUN sudo apt-get update && sudo apt-get install gcc-multilib && \
-    sudo rm -rf /var/lib/apt/lists/* && \
-    sudo pip uninstall crcmod && \
+RUN sudo pip uninstall crcmod && \
     sudo pip install --no-cache -U crcmod
 
-ARG cmdline_tools=https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
+ARG cmdline_tools=https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip
 ARG android_home=/opt/android/sdk
 
 # SHA-256 87f6dcf41d4e642e37ba03cb2e387a542aa0bd73cb689a9e7152aad40a6e7a08
@@ -57,7 +55,7 @@ ARG android_home=/opt/android/sdk
 RUN sudo apt-get update && \
     sudo apt-get install --yes \
         ruby-dev rubygems \
-        xvfb lib32z1 lib32stdc++6 build-essential \
+        xvfb build-essential \
         libcurl4-openssl-dev libglu1-mesa libxi-dev libxmu-dev \
         libglu1-mesa-dev && \
     sudo rm -rf /var/lib/apt/lists/*
@@ -82,12 +80,9 @@ RUN mkdir ~/.android && echo '### User Sources for Android SDK Manager' > ~/.and
 RUN yes | sdkmanager --licenses && yes | sdkmanager --update
 
 # This installs tools, platform-tools, and emulator. installing those individually creates duplicates in the SDK, bloating image size
-RUN sdkmanager "tools"
+# RUN sdkmanager "tools"
 
+ARG ANDROID_SDK_VERSION=33
 RUN sdkmanager \
-  "build-tools;29.0.2" \
-  "build-tools;30.0.2" \
-  "build-tools;30.0.3"
-
-ARG ANDROID_SDK_VERSION=31
-RUN sdkmanager "platforms;android-$ANDROID_SDK_VERSION"
+  "build-tools;$ANDROID_SDK_VERSION.0.0" \
+  "platforms;android-$ANDROID_SDK_VERSION"

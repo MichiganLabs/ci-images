@@ -14,7 +14,7 @@ Images come with the following additional tools installed:
 See [available versions here](https://hub.docker.com/repository/docker/michiganlabs/python/tags?page=1&ordering=name).
 
 ## Android
-Android images are based on `openjdk:11-jdk-slim-buster`.
+Android images are based on `openjdk`.
 
 Images come with the following additional tools installed:
 

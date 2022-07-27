@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        android-sdk-version: [ 30, 31 ]
+        android-sdk-version: [ 31, 33 ]
     steps:
       -
         name: Checkout
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        android-sdk-version: [ 30, 31 ]
+        android-sdk-version: [ 31, 33 ]
     steps:
       -
         name: Checkout

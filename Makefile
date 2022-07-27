@@ -17,7 +17,7 @@ push-py-%:
 
 ## Android ##
 
-ANDROID_SDKS = 30 31
+ANDROID_SDKS = 31 33
 android: $(addprefix build-android-,$(ANDROID_SDKS))
 push-android: $(addprefix push-android-,$(ANDROID_SDKS))
 
