@@ -1,7 +1,7 @@
 ARG VERSION=3.10
 FROM python:${VERSION}-slim
 LABEL repository="https://github.com/michiganlabs/ci-imaages"
-LABEL maintainer="jfriend@michiganlabs.com"
+LABEL maintainer="infrastructure@michiganlabs.com"
 
 ENV DEBIAN_FRONTEND=noninteractive
 

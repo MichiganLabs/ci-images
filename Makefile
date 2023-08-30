@@ -37,3 +37,14 @@ build-android-jdk8-%:
 
 push-android-jdk8-%:
 	docker push michiganlabs/android-jdk8:$*
+
+
+## Android using Java 17 ##
+android-jdk8: $(addprefix build-android-jdk17-,$(ANDROID_SDKS))
+push-android-jdk8: $(addprefix push-android-jdk17-,$(ANDROID_SDKS))
+
+build-android-jdk8-%:
+	docker build ./android-jdk17 --build-arg ANDROID_SDK_VERSION=$* -t michiganlabs/android-jdk17:$*
+
+push-android-jdk8-%:
+	docker push michiganlabs/android-jdk17:$*
