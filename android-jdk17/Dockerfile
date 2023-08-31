@@ -37,9 +37,9 @@ RUN locale-gen C.UTF-8 || true
 ENV LANG=C.UTF-8
 
 RUN sudo apt-get update -qqy && sudo apt-get install -qqy \
-        python-dev \
-        python-pip \
-        python-setuptools \
+        python3-dev \
+        python3-pip \
+        python3-setuptools \
         apt-transport-https \
         lsb-release && \
     sudo rm -rf /var/lib/apt/lists/*
